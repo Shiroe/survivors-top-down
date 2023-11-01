@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy51y8kbuyxbt"]
+
+[ext_resource type="Texture2D" uid="uid://wr0y5va6rj1u" path="res://assets/NinjaAdventure/HUD/Kunai.png" id="1_5xmlg"]
+[ext_resource type="Script" path="res://src/kunai_projectile.gd" id="1_xw0it"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lis6h"]
+radius = 3.0
+height = 16.0
+
+[node name="KunaiProjectile" type="Area2D"]
+script = ExtResource("1_xw0it")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.0827704, 1.52737e-07)
+rotation = 0.782259
+scale = Vector2(0.712597, 0.716771)
+texture = ExtResource("1_5xmlg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57131
+shape = SubResource("CapsuleShape2D_lis6h")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

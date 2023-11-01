@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd7gh60cy7ekp"]
+
+[ext_resource type="Texture2D" uid="uid://ir8bsey0e7v" path="res://assets/Grassy_Mountains_Parallax_Background-vnitti/layers_fullcolor/sky_fc.png" id="1_axrji"]
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_txmvg"]
+[ext_resource type="Texture2D" uid="uid://cy3rjrn0ptix1" path="res://assets/NinjaAdventure/HUD/Dialog/DialogueBoxSimple.png" id="2_ndu7o"]
+[ext_resource type="FontFile" uid="uid://btg01hb56bcda" path="res://assets/NinjaAdventure/HUD/Font/NormalFont.ttf" id="3_t45vo"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_txmvg")
+
+[node name="SkyFc" type="Sprite2D" parent="."]
+position = Vector2(640.111, 360.5)
+scale = Vector2(3.33796, 3.33796)
+texture = ExtResource("1_axrji")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureButton" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_ndu7o")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.678431, 0.364706, 1)
+theme_override_colors/font_shadow_color = Color(0.588235, 0.32549, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.94902, 0.917647, 0.945098, 1)
+theme_override_fonts/font = ExtResource("3_t45vo")
+theme_override_font_sizes/font_size = 28
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
